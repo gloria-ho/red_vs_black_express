@@ -5,7 +5,10 @@
 h1 {
   font-size: 3em;
 }
-h4 {
+h2 {
+  font-size: 2em;
+}
+h2, h4 {
   margin: 10px;
 }
 

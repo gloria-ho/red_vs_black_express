@@ -1,0 +1,13 @@
+{
+  "name": "take_home_mh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
