@@ -7,7 +7,7 @@ function setCookie(key, value, days) {
   document.cookie = key + '=' + value + '; ' + expiration;
 }
 
-
+// check cookies for specific key match and return the value
 function getCookie(key) {
   let target = key + '=';
   let cArr = document.cookie.split(';');
@@ -26,11 +26,9 @@ function getCookie(key) {
   return ''
 }
 
-
 function fillCircle(color) {
   document.querySelector('#circle').style.backgroundColor = color;
 }
-
 
 function randomColor() {
   let c = Math.random();
@@ -40,43 +38,58 @@ function randomColor() {
   return 'blue';
 }
 
+// add to counter cookie
+function addToCounter(color) {
+  setCookie(color, parseInt(getCookie(color)) +1, 999)
+}
 
-// check if cookies exists
-if (!document.cookie) {
-  // create counter cookies for each color
+// check if counters exist, create if not
+if (!getCookie('red')) {
   setCookie('red', 0, 999);
+}
+if (!getCookie('blue')) {
   setCookie('blue', 0, 999);
+}
+  
+// check if last shown color exists
+if (!getCookie('last_shown_color')) {
+  console.log('new color')
   // randomize a color
   let color = randomColor();
   // render the bg color in the circle
   fillCircle(color);
-  // set last shown color cookies
+  // set last shown color cookie
   setCookie('last_shown_color', color, 999)
-  // add to counter cookie
-  setCookie(color, 1, 999);
+  addToCounter(color);
 } else {
-  document.querySelector('#welcome').innerText = 'Welcome back, User!';
-  // get the last shown color from cookie
   let color = getCookie('last_shown_color');
+  document.querySelector('#welcome').innerHTML = 'Welcome back, User! Your last color was <span id="color" class="' + color + '">' + color + '</span>';
+  // render the same bg as the last shown color
   fillCircle(color);
-  // add to counter cookie
-  setCookie(color, parseInt(getCookie(color)) + 1, 999)
+  // addToCounter(color);
+  // clear last shown color cookie
+  setCookie('last_shown_color', '', -1);
 }
 
 
 // SHOW THE REPORT
 let reportBtn = document.querySelector('#reportBtn');
 let report = document.querySelector('#report');
+
 // show counter cookie if counter exists
-reportBtn.onclick = () => {
-  if (getCookie('last_shown_color')) {
-    report.innerHTML = '<h4>Report:</h4>Red: ' + getCookie('red') + '<br />' + 'Blue: ' + getCookie('blue');
-  } else {
-    report.innerHTML = '<h4>Report:</h4> <span class="red">Error!</span> Please refresh the page';
-  }
+// reportBtn.onclick = () => {
+
+  // if (getCookie('last_shown_color')) {
+
+  report.innerHTML = '<h4>Report:</h4>Red: ' + getCookie('red') + '<br />' + 'Blue: ' + getCookie('blue');
+
+  // } else {
+    // report.innerHTML = '<h4>Report:</h4> <span class="red">Error!</span> Please refresh the page';
+  // }
+
   report.classList.remove('hidden');
-  reportBtn.classList.add('hidden');
-}
+  // reportBtn.classList.add('hidden');
+// }
 
 // RELOAD THE PAGE
 let reloadBtn = document.querySelector('#reloadBtn');
@@ -101,4 +114,3 @@ clearBtn.onclick = () => {
 }
 
 console.log(document.cookie);
-
