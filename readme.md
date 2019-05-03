@@ -6,9 +6,10 @@
 3. Direct your browser to `localhost:3000`
 
 ## Features:
-- 50/50 chance of showing user a red or blue circle
-- JavaScript cookies keep track of which color was shown last
-- JavaScript cookies keep track of total color count
+Due to Google Chrome not allowing a local web page cookie privileges, I chose to use Express to create a simple local server.
+- Loads a randomly colored circle
+- Keeps track of the last color seen
+- Keeps a total tally of how many times each color was seen
 - User can refresh the page with a button
 - User can clear the cookies with a button
 
