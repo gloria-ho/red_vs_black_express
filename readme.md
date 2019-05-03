@@ -1,4 +1,4 @@
-# Red v Blue
+# Red v. Blue
 
 ## How to run
 1. In the command line, run `npm install`
