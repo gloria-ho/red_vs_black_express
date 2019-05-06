@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Red v Blue Report</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1 class="center">Global Users Report</h1>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col center">User IP</th>
+        <th scope="col center">Red</th>
+        <th scope="col center">Blue</th>
+      </tr>
+    </thead>
+    <tbody id="empty-table">
+      <!-- empty table body to insert report data -->
+    </tbody>
+  </table>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="./index.js"></script>
+</body>
+</html>

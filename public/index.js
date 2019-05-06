@@ -86,11 +86,13 @@ if (!getCookie('red')) {
 if (!getCookie('blue')) {
   setCookie('blue', 0, 999);
 }
-  
+
+let color = ''
+
 // check if last shown color exists
 if (!getCookie('last_shown_color')) {
   // randomize a color
-  let color = randomColor();
+  color = randomColor();
   // render the bg color in the circle
   fillCircle(color);
   // set last shown color cookie
@@ -98,11 +100,17 @@ if (!getCookie('last_shown_color')) {
   // add 1 to color counter
   addToCounter(color);
 } else {
-  let color = getCookie('last_shown_color');
+  color = getCookie('last_shown_color');
   document.querySelector('#welcome').innerHTML = '<h1 class="center">Welcome back, User!</h1><h2 class="center">Your last color was <span id="color" class="' + color + '">' + color.toUpperCase() + '</span>.</h2>';
   // render the same bg as the last shown color
   fillCircle(color);
   // clear last shown color cookie, no need to add to color counter here
   setCookie('last_shown_color', '', -1);
 }
+// render report
 showReport();
+
+// send user data
+axios.post('http://localhost:3000/addImpression', {
+    color: color
+});

@@ -55,3 +55,8 @@ button {
   border: 1px solid #868e96;
   cursor: pointer;
 }
+
+.table {
+  max-width: 80%;
+  margin: 20px auto;
+}
