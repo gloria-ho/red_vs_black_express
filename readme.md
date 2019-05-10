@@ -5,6 +5,9 @@
 2. Run `npm run start`
 3. Direct your browser to `localhost:3000`
 
+## How to view report
+1. Direct your browser to `localhost:3000/report`
+
 ## Features:
 Due to Google Chrome not allowing a local web page cookie privileges, I chose to use Express to create a simple local server.
 - Loads a randomly colored circle

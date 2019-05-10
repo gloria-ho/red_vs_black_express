@@ -27,7 +27,6 @@ app.post('/addImpression', function(req, res, next) {
   let color = req.body.color;
   let ip = req.ip
   report.addImpression(ip, color);
-  console.log(report.getReport());
 });
 
 // show global report data
