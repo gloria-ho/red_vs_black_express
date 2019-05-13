@@ -15,10 +15,10 @@ function generateTable(array) {
   for (item of array) {
     let ip = row.insertCell(0);
     let red = row.insertCell(1);
-    let blue = row.insertCell(2);
+    let black = row.insertCell(2);
     ip.innerText = item.ip;
     red.innerText = item.red;
-    blue.innerText = item.blue;
+    black.innerText = item.black;
   }
 }
 

@@ -34,19 +34,19 @@ function clearCookie(key) {
 // EXPIRE ALL COOKIES
 function clearAllCookies() {
   clearCookie('red');
-  clearCookie('blue');
+  clearCookie('black');
   clearCookie('last_shown_color');
 }
 
-// CHANGE CIRCLE COLOR
-function fillCircle(color) {
-  document.querySelector('#circle').style.backgroundColor = color;
+// CHANGE SQUARE COLOR
+function fillSquare(color) {
+  document.querySelector('#square').style.backgroundColor = color;
 }
 
 // RANDOMIZE COLOR WITH 50/50 ODDS
 function randomColor() {
   let c = Math.random();
-  return (c > .5) ? 'red' : 'blue';
+  return (c > .5) ? 'red' : 'black';
 }
 
 // ADDING TO COLOR COUNTER
@@ -58,7 +58,7 @@ function addToCounter(color) {
 let reportBtn = document.querySelector('#reportBtn');
 let report = document.querySelector('#report');
 function showReport() {
-  report.innerHTML = '<h4>Total Times Seen:</h4><span class="red">Red: ' + getCookie('red') + '</span><br />' + '<span class="blue">Blue: ' + getCookie('blue') + '</span>';
+  report.innerHTML = '<h4>Total Times Seen:</h4><span class="red">Red: ' + getCookie('red') + '</span><br />' + '<span class="black">Black: ' + getCookie('black') + '</span>';
   report.classList.remove('hidden');
 }
 
@@ -71,8 +71,8 @@ reloadBtn.onclick = () => {
 let clearBtn = document.querySelector('#clearBtn');
 clearBtn.onclick = () => {
   clearAllCookies();
-  // clear the circle and instruct user to refresh the page
-  fillCircle('#f8f9fa');
+  // clear the square and instruct user to refresh the page
+  fillSquare('#f8f9fa');
   // disable button click once cleared
   this.disabled=true;
   clearBtn.innerText = 'Please refresh the page to start over';
@@ -83,8 +83,8 @@ clearBtn.onclick = () => {
 if (!getCookie('red')) {
   setCookie('red', 0, 999);
 }
-if (!getCookie('blue')) {
-  setCookie('blue', 0, 999);
+if (!getCookie('black')) {
+  setCookie('black', 0, 999);
 }
 
 let color = ''
@@ -93,8 +93,8 @@ let color = ''
 if (!getCookie('last_shown_color')) {
   // randomize a color
   color = randomColor();
-  // render the bg color in the circle
-  fillCircle(color);
+  // render the bg color in the square
+  fillSquare(color);
   // set last shown color cookie
   setCookie('last_shown_color', color, 999)
   // add 1 to color counter
@@ -103,7 +103,7 @@ if (!getCookie('last_shown_color')) {
   color = getCookie('last_shown_color');
   document.querySelector('#welcome').innerHTML = '<h1 class="center">Welcome back, User!</h1><h2 class="center">Your last color was <span id="color" class="' + color + '">' + color.toUpperCase() + '</span>.</h2>';
   // render the same bg as the last shown color
-  fillCircle(color);
+  fillSquare(color);
   // clear last shown color cookie, no need to add to color counter here
   setCookie('last_shown_color', '', -1);
 }

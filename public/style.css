@@ -1,6 +1,6 @@
 * {
   font-family: sans-serif;
-  color: #343a40;
+  color: #787d83;
 }
 h1 {
   font-size: 3em;
@@ -21,15 +21,15 @@ h2, h4 {
 .red {
   color: #f00;
 }
-.blue {
-  color: #00f;
+.black {
+  color: #000;
 }
 
-.circle {
+.square {
   width: 100px;
   min-height: 100px;
   border: 1px #868e96 solid;
-  border-radius: 50px;
+  border-radius: 10px;
   color: #FFF;
   margin: 25px auto;
 }
